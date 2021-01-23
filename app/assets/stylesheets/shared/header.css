@@ -4,9 +4,8 @@
 
 .top-page-header {
   width: 100vw;
-  height: 15vh;
-  line-height: 15vh;
-  padding: 1vh 3vw;
+  height: 10vh;
+  padding: 2vh 15vw;
   display: flex;
   flex-direction: column;
 }
@@ -45,12 +44,13 @@
   justify-content: space-around;
   flex-wrap: wrap;
   width: 100%;
-
+  padding: 1vh 0;
 }
 
 .lists {
   display: flex;
   min-width: 150px;
+  line-height: 10vh;
   text-decoration: none;
   color: #333333;
   font-weight: bold;
@@ -58,11 +58,10 @@
 
 .category-list {
   margin-right: 3vw;
-  color: #333333;
-  text-align: center;
 }
 
 .user-nickname {
+  color: #333333;
   text-decoration: none;
   margin-right: 3vw;
   color: #333333;
@@ -70,7 +69,6 @@
 
 .logout {
   text-decoration: none;
-  margin-right: 3vw;
   color: #333333;
 }
 
