@@ -1,0 +1,39 @@
+<%= render "shared/header" %>
+
+<%# 地図表示 %>
+</form>
+<div id="target">
+</div>
+    <script src="http://maps.googleapis.com/maps/api/js?language=ja&region=JP&key=AIzaSyBg8cZ_3JPNKblF8pqzCgB48X6DgL-2JtI&callback=initMap&libraries=places" async defer></script>
+    <script>
+      function initMap() {
+        'use strict';
+
+        var target = document.getElementById('target');
+        var map;
+        
+        // 現在地を取得
+          if (!navigator.geolocation) {
+            alert('お使いのブラウザでは現在値を取得することができません');
+            return
+          }
+          navigator.geolocation.getCurrentPosition(function(position) {
+            map = new google.maps.Map(target, {
+              center: {
+                lat: position.coords.latitude,
+                lng: position.coords.longitude
+              },
+              zoom: 15,
+              disableDefaultUI: true 
+            });
+        // エラーメッセージを表示
+        }, function() {
+          alert('現在地を取得できませんでした');
+          return;
+        });
+
+      }
+    </script>
+  <%# 地図表示 %>
+
+<%= render 'shared/footer' %>

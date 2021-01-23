@@ -1,0 +1,19 @@
+<%# CSS・・・assets/stylesheets/shared/header.css %>
+<header class='top-page-header'>
+  <div class='nav'>
+    <ul class='lists'>
+      <li><%= link_to image_tag("logo-color.png", class:"logo-icon"), "/" %></li>
+        <li>
+          <form class="search-form" action="#">
+           <input class='input-box' placeholder='キーワードから探す'>
+           <button class="search-button">
+              <%= image_tag "search.png", class:"search-icon" %>
+            </button>
+          </form>
+        </li>
+        <li><%= link_to 'カテゴリー', "#", class: "category-list" %></li>
+        <li><%= link_to 'ログイン', "#", class: "login" %></li>
+        <li><%= link_to '新規登録', "#", class: "sign-up" %></li>
+    </ul>
+  </div>
+</header>
