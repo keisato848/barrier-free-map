@@ -6,8 +6,6 @@
 |columns|types|options|
 |-|-|-|
 |nickname|string|null:false|
-|mail_address|string|null: false|
-|type|integer|null: false, ActiveHash|
 |profile|text|
 
 ### association
