@@ -61,3 +61,4 @@ gem 'image_processing', '~>1.2'
 gem 'mini_magick'
 gem 'pry-rails'
 gem 'rails-i18n'
+gem 'aws-sdk-s3', require: false
