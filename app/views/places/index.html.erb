@@ -1,39 +1,66 @@
 <%= render "shared/header" %>
 
 <%# 地図表示 %>
-</form>
-<div id="target">
-</div>
-    <script src="http://maps.googleapis.com/maps/api/js?language=ja&region=JP&key=AIzaSyBg8cZ_3JPNKblF8pqzCgB48X6DgL-2JtI&callback=initMap&libraries=places" async defer></script>
-    <script>
-      function initMap() {
-        'use strict';
+<div class="map" id="target"></div>
 
-        var target = document.getElementById('target');
-        var map;
-        
-        // 現在地を取得
-          if (!navigator.geolocation) {
-            alert('お使いのブラウザでは現在値を取得することができません');
-            return
-          }
-          navigator.geolocation.getCurrentPosition(function(position) {
-            map = new google.maps.Map(target, {
-              center: {
-                lat: position.coords.latitude,
-                lng: position.coords.longitude
-              },
-              zoom: 15,
-              disableDefaultUI: true 
-            });
-        // エラーメッセージを表示
-        }, function() {
-          alert('現在地を取得できませんでした');
-          return;
-        });
+<script src="http://maps.google.com/maps/api/js?language=ja&region=JP&key=AIzaSyBg8cZ_3JPNKblF8pqzCgB48X6DgL-2JtI&callback=initMap&libraries=places" async defer></script>
 
-      }
-    </script>
-  <%# 地図表示 %>
+<script>
+function initMap() {
+const map = new google.maps.Map(document.getElementById("target"), {
+center: { lat: -33.866, lng: 151.196 },
+zoom: 15,
+});
+const request = {
+placeId: "ChIJN1t_tDeuEmsRUsoyG83frY4",
+fields: ["name", "formatted_address", "place_id", "geometry"],
+};
+const infowindow = new google.maps.InfoWindow();
+const service = new google.maps.places.PlacesService(map);
+service.getDetails(request, (place, status) => {
+if (status === google.maps.places.PlacesServiceStatus.OK) {
+  const marker = new google.maps.Marker({
+    map,
+    position: place.geometry.location,
+  });
+  google.maps.event.addListener(marker, "click", function () {
+    infowindow.setContent(
+      "<div><strong>" +
+        place.name +
+        "</strong><br>" +
+        "Place ID: " +
+        place.place_id +
+        "<br>" +
+        place.formatted_address +
+        "</div>"
+    );
+    infowindow.open(map, this);
+  });
+}
+});
+}
+
+'use strict'
+
+{
+  const open = document.getElementById('open');
+  const overlay = document.querySelector('.overlay');
+  const map = document.getElementById('target');
+  const close = document.getElementById('close');
+
+  open.addEventListener('click', () => {
+    overlay.classList.add('show');
+    overlay.classList.add('hide');
+    target.classList.add('hide');
+  });
+
+  close.addEventListener('click', () => {
+    overlay.classList.remove('show');
+    overlay.classList.remove('hide');
+    target.classList.remove('hide');
+  });
+}
+
+</script>
 
 <%= render 'shared/footer' %>

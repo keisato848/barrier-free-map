@@ -1,3 +1,7 @@
+body {
+  font-family: Verdana, sans-serif;
+}
+
 a {
   text-decoration: none;
 }
@@ -9,5 +13,17 @@ a {
 // 地図部分
 #target {
   width: 100vw;
-  height: 70vh;
+  height: 50vh;
+  margin-top: 50px;
+}
+
+#text {
+  height: 30px;
+}
+
+#more {
+  width: 60px;
+  height: 30px;
+  background: lightgray;
+  color: #f8f8f8;
 }
