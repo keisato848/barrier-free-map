@@ -19,7 +19,11 @@
         
       <% if user_signed_in? %>
         <li>
+          <% if current_user.image %>
           <%= link_to image_tag(current_user.image, class: "user-icon", id: "user-icon"), "#" %>
+          <% else %>
+          <%= image_tag "user-icon-dammy.png", class:"user-icon" %>
+          <% end %>
         </li>
         <li>
         <li>
