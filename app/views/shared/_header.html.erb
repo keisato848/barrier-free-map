@@ -25,6 +25,19 @@
         <li>
           <span class="material-icons" id="open">expand_more</span>
         </li>
+        <div class="overlay">
+          <span class="material-icons" id="close">close</span>
+          <nav>
+            <ul>
+              <li>
+                <%= link_to 'プロフィール設定', "#", class: "logout" %>  
+              </li>
+              <li>
+                <%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: "logout" %> 
+              </li>
+            </ul>
+          </nav>
+        </div>
         <% else %>
           <li>
             <%= link_to 'ログイン', new_user_session_path, class: "login" %>
@@ -37,18 +50,5 @@
   </div>
 </header>
 
-  <div class="overlay">
-    <span class="material-icons" id="close">close</span>
-    <nav>
-      <ul>
-        <li>
-          <%= link_to 'プロフィール設定', "#", class: "logout" %>  
-        </li>
-        <li>
-          <%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: "logout" %> 
-        </li>
-      </ul>
-    </nav>
-  </div>
 
 
